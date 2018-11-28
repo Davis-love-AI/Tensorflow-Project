@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 16 00:52:02 2018
-@author: Xiang Guo
-"""
 
 import os
 import glob
@@ -38,6 +34,5 @@ def main():
     xml_df = xml_to_csv(image_path)
     xml_df.to_csv('tv_vehicle_labels.csv', index=None)
     print('Successfully converted xml to csv.')
-
 
 main()

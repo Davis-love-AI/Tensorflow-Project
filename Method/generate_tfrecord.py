@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 16 01:04:55 2018
-@author: Xiang Guo
-"""
 
 """
 Usage:
@@ -12,8 +8,6 @@ Usage:
   # Create test data:
   python generate_tfrecord.py --csv_input=data/test_labels.csv  --output_path=test.record
 """
-
-
 
 import os
 import io

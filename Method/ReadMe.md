@@ -1,4 +1,7 @@
-第一步：安装tensorflow和tensorflow model，过于基础不在叙述。
+第一步：安装tensorflow和tensorflow model。
+配置COCO API
+最好的方法：pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+手动安装：https://github.com/philferriere/cocoapi
 
 第二步：使用LabelImg自定义数据集
 

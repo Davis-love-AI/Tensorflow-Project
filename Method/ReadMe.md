@@ -1,9 +1,9 @@
-第一步：安装tensorflow和tensorflow model。
-配置COCO API<br>
+#第一步：安装tensorflow和tensorflow model。
+##配置COCO API<br>
 最好的方法：pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI<br>
-手动安装：https://github.com/philferriere/cocoapi
+不行就手动安装：https://github.com/philferriere/cocoapi
 
-第二步：使用LabelImg自定义数据集
+#第二步：使用LabelImg自定义数据集
 
 2.1 下载labelImg https://github.com/tzutalin/labelImg
 
@@ -13,7 +13,7 @@
 
 2.4 使用代码generate_tfrecord.py将csv转为tfRecord文件
 
-第三步：配置训练文件和模型
+#第三步：配置训练文件和模型
 
 3.1 在..\object_detection\samples\configs下拷贝一个配置信息到..\object_detection\my training
 

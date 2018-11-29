@@ -1,4 +1,4 @@
-#第一步：安装tensorflow和tensorflow model。
+#第一步：安装tensorflow和tensorflow model<br>
 ##配置COCO API<br>
 最好的方法：pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI<br>
 不行就手动安装：https://github.com/philferriere/cocoapi

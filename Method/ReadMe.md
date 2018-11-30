@@ -10,10 +10,10 @@
   pythonpath C:\Tensorflow\models\research\slim\
 
 #第二步：使用LabelImg自定义数据集<br>
-2.1 下载labelImg https://github.com/tzutalin/labelImg<br>
-2.2 使用labelImg制作数据集<br>
-2.3 使用代码xml_to_csv.py将所有xml统一到一个文件中<br>
-2.4 使用代码generate_tfrecord.py将csv转为tfRecord文件
+2.1 下载 labelImg https://github.com/tzutalin/labelImg<br>
+2.2 使用 labelImg 制作数据集<br>
+2.3 使用代码 xml_to_csv.py 将所有xml统一到一个文件中<br>
+2.4 使用代码 generate_tfrecord.py 将csv转为tfRecord文件
 
 #第三步：配置训练文件和模型
 

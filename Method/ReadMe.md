@@ -15,13 +15,10 @@
 2.3 使用代码 xml_to_csv.py 将所有xml统一到一个文件中<br>
 2.4 使用代码 generate_tfrecord.py 将csv转为tfRecord文件
 
-#第三步：配置训练文件和模型
-
-3.1 在..\object_detection\samples\configs下拷贝一个配置信息到..\object_detection\my training
-
-例如拷贝ssd_mobilenet_v1_coco.config文件
-
-修改：
-9行num_classes、141batch_size、173行训练数据路径、187行测试数据路径
-删除：fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/model.ckpt" 和from_detection_checkpoint: true
+#第三步：配置训练文件和模型<br>
+3.1 在..\object_detection\samples\configs下拷贝一个配置信息到..\object_detection\training<br>
+例如拷贝ssd_mobilenet_v1_coco.config文件<br>
+修改：<br>
+9行num_classes、141batch_size、173行训练数据路径、187行测试数据路径<br>
+删除：fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/model.ckpt" 和from_detection_checkpoint: true<br>
 3.2 

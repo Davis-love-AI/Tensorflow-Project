@@ -3,7 +3,7 @@
 1.2 配置 protoc <br>
   在 https://github.com/google/protobuf/releases 中选择windows版本，解压后将bin文件夹下的 protoc.exe 放在 C:\Windows 下。<br>
   在 models\research\ 目录下打开命令行窗口，输入：protoc object_detection/protos/*.proto --python_out=.<br>
-1.3 配置 COCO API: <br>
+1.3 配置 COCO API<br>
   查看文件Pycocotools安装方法.zip<br>
 1.4 配置windows环境变量 <br>
   pythonpath C:\Tensorflow\models\research

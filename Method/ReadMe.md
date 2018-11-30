@@ -1,5 +1,5 @@
-#第一步：安装tensorflow和tensorflow model<br>
-##配置COCO API：查看文件Pycocotools安装方法.zip
+第一步：安装tensorflow和tensorflow model<br>
+配置COCO API：查看文件Pycocotools安装方法.zip
 
 #第二步：使用LabelImg自定义数据集
 

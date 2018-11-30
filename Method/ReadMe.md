@@ -6,8 +6,8 @@
 1.3 配置 COCO API<br>
   查看文件Pycocotools安装方法.zip<br>
 1.4 配置windows环境变量 <br>
-  pythonpath C:\Tensorflow\models\research
-  pythonpath C:\Tensorflow\models\research\
+  pythonpath C:\Tensorflow\models\research<br>
+  pythonpath C:\Tensorflow\models\research\slim\
 
 #第二步：使用LabelImg自定义数据集
 

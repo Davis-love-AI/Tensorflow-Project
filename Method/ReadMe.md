@@ -23,10 +23,11 @@
 删除：fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/model.ckpt" 和from_detection_checkpoint: true<br>
 3.2 
 
-第四步：训练模型
+第四步：训练模型<br>
 目前版本(tensorflow 1.12)使用代码为：<br>
 python model_main.py --model_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_coco.config
 
-第五步 移植安卓端
-报错信息：Could not find com.android.tools.build:gradle:3.0.1.
-https://majing.io/posts/10000004111202
+第五步 移植安卓端<br>
+Android Studio版本 3.0.2
+报错：Could not find com.android.tools.build:gradle:3.0.1.<br>
+解决方案：https://majing.io/posts/10000004111202<br>

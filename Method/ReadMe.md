@@ -7,7 +7,7 @@
   查看文件Pycocotools安装方法.zip<br>
 1.4 配置windows环境变量 <br>
   pythonpath C:\Tensorflow\models\research<br>
-  pythonpath C:\Tensorflow\models\research\slim\
+  pythonpath C:\Tensorflow\models\research\slim
 
 #第二步：使用LabelImg自定义数据集<br>
 2.1 下载 labelImg https://github.com/tzutalin/labelImg<br>

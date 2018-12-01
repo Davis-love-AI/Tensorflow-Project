@@ -26,3 +26,7 @@
 第四步：训练模型
 目前版本(tensorflow 1.12)使用代码为：<br>
 python model_main.py --model_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_coco.config
+
+第五步 移植安卓端
+报错信息：Could not find com.android.tools.build:gradle:3.0.1.
+https://majing.io/posts/10000004111202

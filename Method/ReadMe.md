@@ -22,3 +22,7 @@
 9行num_classes、141batch_size、173行训练数据路径、187行测试数据路径<br>
 删除：fine_tune_checkpoint: "PATH_TO_BE_CONFIGURED/model.ckpt" 和from_detection_checkpoint: true<br>
 3.2 
+
+第四步：训练模型
+目前版本(tensorflow 1.12)使用代码为：<br>
+python model_main.py --model_dir=training/ --pipeline_config_path=training/ssd_mobilenet_v1_coco.config

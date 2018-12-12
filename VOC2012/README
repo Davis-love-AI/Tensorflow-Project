@@ -1,1 +1,5 @@
 
+在tensorflow/models/下运行：
+python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/Tensorf
+low/dataset/VOCdevkit --year=VOC2012 --output_path=D:/Tensorflow/TFRecords/VOC2012/pascal2012train.record --label_map_pa
+th=object_detection/data/pascal_label_map.pbtxt --set=train

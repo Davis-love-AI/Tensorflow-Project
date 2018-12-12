@@ -1,6 +1,9 @@
+使用 Tensorflow Object Detection API 训练 VOC2012 数据集
 
-在tensorflow/models/下运行：
+1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
+
+在 tensorflow/models 下运行：
 python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/Tensorflow/dataset/VOCdevkit --year=VOC2012 --output_path=D:/Tensorflow/TFRecords/VOC2012/pascal2012train.record --label_map_path=object_detection/data/pascal_label_map.pbtxt --set=train
 
-
+2. 
 python object_detection/model_main.py --pipeline_config_path=D:/Tensorflow/my_project/ssd_mobilenet_v1_VOC2012.config --model_dir=D:/Tensorflow/my_project/model_dir/VOC2012 --num_train_steps=100 --num_eval_steps=10 --alsologtostderr

@@ -1,0 +1,29 @@
+二. TFRecords 文件的读取
+
+  2.1 从 TFRecords 文件中读取三种格式的数据：
+  
+  filename_queue = tf.train.string_input_producer(["its.tfrecords"], num_epochs=None)
+  reader = tf.TFRecordReader()
+  _, serialized_example = reader.read(filename_queue)
+  
+  features = tf.parse_single_example(
+    serialized_example,
+    feature={
+      'a': tf.FixedLenFeature([], tf.float32),
+      'b': tf.FixedLenFeature([], tf.int64),
+      'c': tf.FixedLenFeature([], tf.string),
+    }
+  )
+  
+  a = features['a']
+  b = features['b']
+  c_raw = features['c']
+  c = tf.decode_raw(c_raw, tf.uint8)
+  c = tf.reshape(c, [2, 3])
+  
+  a_batch, b_batch, c_batch = tf.train.shuffle_batch([a, b, c], batch_size=1, capacity=200, min_after_dequeue=100, num_threads=2)
+  sess = tf.Session()
+  init = tf.initialize_all_variables()
+  sess.run(init)
+  
+  tf.train.start_queue_runners(sess=sess)

@@ -1,11 +1,12 @@
-1. TFRecords 写入文件经典格式:
+一. TFRecords 文件的创建：
+  1.1 TFRecords 写入文件经典格式:
 
-writer = tf.python_io.TFRecordWriter(TFRecordsPath)
-for i in range(0, n):
-  # 创建样本example
-  # ...
-  serialized = example.SerializeToString()
-  writer.write(serialized)
-writer.close()
+  writer = tf.python_io.TFRecordWriter(TFRecordsPath)
+  for i in range(0, n):
+    # 创建样本example
+    # ...
+    serialized = example.SerializeToString()
+    writer.write(serialized)
+  writer.close()
 
-
+  1.2 

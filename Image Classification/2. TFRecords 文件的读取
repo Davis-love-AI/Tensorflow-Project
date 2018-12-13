@@ -21,6 +21,7 @@
   c = tf.decode_raw(c_raw, tf.uint8)
   c = tf.reshape(c, [2, 3])
   
+  # tf.train.shuffle_batch 保证每次读取的数据其内容与标签同步
   a_batch, b_batch, c_batch = tf.train.shuffle_batch([a, b, c], batch_size=1, capacity=200, min_after_dequeue=100, num_threads=2)
   sess = tf.Session()
   init = tf.initialize_all_variables()

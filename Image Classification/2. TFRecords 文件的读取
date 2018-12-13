@@ -27,3 +27,7 @@
   sess.run(init)
   
   tf.train.start_queue_runners(sess=sess)
+  a_val, b_val, c_val = sess.run([a_batch, b_batch, c_batch])
+  print(a_val)
+  print(b_val)
+  print(c_val)

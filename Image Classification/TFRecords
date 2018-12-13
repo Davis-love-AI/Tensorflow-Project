@@ -8,4 +8,19 @@
     writer.write(serialized)
   writer.close()
 
-  1.2 
+  1.2 三种格式数据写入
+  example = tf.train.Example(
+    feature=tf.train.Features(
+      feature={
+        'a': tf.train.Feature(
+          float_list=tf.train.FloatList(value=[float_data])
+        ),
+        'b': tf.train.Feature(
+          int64_list=tf.train.Int64List(value=[int_data])
+        ),
+        'c': tf.train.Feature(
+          bytes_list=tf.train.BatesList(value=[])
+        )
+      }
+    )
+  )

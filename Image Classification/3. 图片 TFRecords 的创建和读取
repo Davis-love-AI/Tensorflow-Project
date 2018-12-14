@@ -19,8 +19,8 @@ for name in os.listdir(path):
     img = img.resize((500, 500))
     img_raw = img.tobytes()
     example = tf.train.Example(features=tf.train.Features(feature={
-      "label":tf.train.Feature(),
-      "image":tf.train.Feature()
+      "label":tf.train.Feature(int64_lisst=tf.train.Int64List(value=[name])),
+      "image":tf.train.Feature(bytes_list=tf.train.ByteList(value=[img_raw]))
     }))
     writer.write(example.SerializeToString())
     

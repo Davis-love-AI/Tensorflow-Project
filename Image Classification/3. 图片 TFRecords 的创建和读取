@@ -51,7 +51,9 @@ def read_and_decode(filename):
 filename = "train.tfrecords"
 img, label = read_and_decode(filename)
 
-img_batch, label_batch = tf.train.shuffle_batch([], batchsize=1, capacity=10, min_after_dequeue=1)
+# 输入的张量，每次弹出元素数目，队列能够容纳的最大元素个数， 出队列后还可以供随机采样出批量数据的样本池大小，线程数目
+# min_after_dequeue + (num_threads + a small safety margin) * batchsize
+img_batch, label_batch = tf.train.shuffle_batch([img, label], batchsize=1, capacity=10, min_after_dequeue=1)
 init = tf.initialize_all_variables()
 sess = tf.Session()
 sess.run(init)

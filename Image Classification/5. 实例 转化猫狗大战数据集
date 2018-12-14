@@ -30,8 +30,8 @@ def create_record(cwd="C:/cat_and_dog_r", classes={'cat', 'dog'}, img_height=224
     
 3.2 读取TFRecords
 
-def read_and_decode(filename, img_height=224, img_width=224):
-  filename_queue = tf.train.string_input_producer([filename])
+def read_and_decode(filename, img_height=224, img_width=224, batchSize=100):
+  filename_queue = tf.train.string_input_producer([filename], shuffle=True)
   reader = tf.TFRecordReader()
   _, serialized_example = reader.read(filename_queue)
   features = tf.parse_single_example(serialized_example,
@@ -46,24 +46,25 @@ def read_and_decode(filename, img_height=224, img_width=224):
   img = tf.reshape(img, [img_height, img_width, 3])
   img = tf.cast(img, tf.float32) * (1. / 128) - 0.5
   label = tf.cast(label], tf.int32)
-  return img, label
+  min_after_dqueue = batchSize * 9
+  capacity = min_after_dequeue + batchSize
+  exampleBatch, labelBatch = tf.train.shuffle_batch([img, label], batch_size=batchSize, capacity=capacity, min_after_dequeue=min_after_dequeue)
+  return exampleBatch, labelBatch
 
-
-filename = "train.tfrecords"
-img, label = read_and_decode(filename)
-
-# 输入的张量，每次弹出元素数目，队列能够容纳的最大元素个数， 出队列后还可以供随机采样出批量数据的样本池大小，线程数目
-# min_after_dequeue + (num_threads + a small safety margin) * batchsize
-img_batch, label_batch = tf.train.shuffle_batch([img, label], batchsize=1, capacity=10, min_after_dequeue=1)
-init = tf.initialize_all_variables()
-sess = tf.Session()
-sess.run(init)
-threads = tf.train.start_queue_runners(sess=sess)
-
-for _ in range(10):
-  val = sess.run(img_batch)
-  label = sess.run(label_batch)
-  val.resize((300, 300, 3))
-  cv2.imshow("cool", val)
-  cv2.waitKey()
-  print(label)
+if __name__ == "__main__":
+  init = tf.initialize_all_variables()
+  exampleBatch, labelBatch = batch_read_and_decode("train.tfrecords")
+  
+  with tf.Session() as sess:
+    sess.run(init)
+    coord = tf.train.Coordinator()
+    threads = tf.train.start_queue_runners(coord=coord)
+    
+    for i in range(100):
+      example, label = sesss.run([exampleBatch, labelBatch])
+      print(example[0][112], label)
+      print("------------%i-----------"%i)
+    
+    coord.request_stop()
+    coord.join(threads)
+    

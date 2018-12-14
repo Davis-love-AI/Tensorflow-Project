@@ -1,12 +1,12 @@
 图片目录结构：
 -jpg
   -dog
-     image_0000.jpg
-     image_0001.jpg
+     dog_0000.jpg
+     dog_0001.jpg
      ...
   -cat
-    image_0000.jpg
-    image_0001.jpg
+    cat_0000.jpg
+    cat_0001.jpg
     ...
   ...
 

@@ -81,18 +81,25 @@ if __name__ == "__main__":
         coord.join(threads)
   
   5.2 Slim 读取 TFRecords 格式数据
+  缺失文件网址
+  https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/slim/python/slim/data/dataset_data_provider_test.py
   
+  import tensorflow as tf
+  import slim
+
   with tf.Session() as sess:
-    import tensorflow.contrib.slim.python.slim.data.dataset_data_provider_test as dateset
-    res = dataset._create_tfrecord_dataset("")
-    from tensorflow.contrib.slim.python.slim.data import dataset_data_provider
-    provider = dataset_data_provider.DatasetDataProvider(res)
-    [image] = provider.get(['image'])
-    [label] = provider.get(['label'])
-    image = dataset._resize_image(image, 224, 224)
-    import tensorflow.contrib.slim.python.slim.queues as queues
-    with queues.QueueRunners(sess):
-      image, label = sess.run([image, label])
-      print(list[image.shape])
-      print(lsit[label.shape])
-    
+
+      import tensorflow.contrib.slim.python.slim.data.dataset_data_provider_test as datset
+
+      res = datset._create_tfrecord_dataset("")
+      from tensorflow.contrib.slim.python.slim.data import dataset_data_provider
+
+      provider = dataset_data_provider.DatasetDataProvider(res)
+      [image] = provider.get(['image'])
+      [label] = provider.get(['label'])
+      image = datset._resize_image(image, 224, 224)
+      import tensorflow.contrib.slim.python.slim.queues as queues
+
+      with queues.QueueRunners(sess):
+          image, label = sess.run([image, label])
+          print(image.shape)

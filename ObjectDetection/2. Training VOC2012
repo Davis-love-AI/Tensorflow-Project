@@ -1,16 +1,18 @@
 使用 Tensorflow Object Detection API 训练 VOC2012 数据集
 
-VOC2012数据集 下载：http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html
-环境：Windows10, Tensorflow 1.11.0, Python3.6
+数据集下载：http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html
 
 1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
+修改文件164行为：
+data_dir, year, 'ImageSets', 'Main', FLAGS.set + '.txt'
 
-在 tensorflow/models 下运行：
-python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/Tensorflow/dataset/VOCdevkit --year=VOC2012 --output_path=D:/Tensorflow/TFRecords/VOC2012/pascal2012train.record --label_map_path=object_detection/data/pascal_label_map.pbtxt --set=train
+在 tensorflow\models 下运行：
+python object_detection\dataset_tools\create_pascal_tf_record.py --data_dir=D:\VOCdevkit --year=VOC2012 --output_path=D:\tfrecords\pascal2012train.record --label_map_path=object_detection\data\pascal_label_map.pbtxt --set=train
 python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/Tensorflow/dataset/VOCdevkit --year=VOC2012 --output_path=D:/Tensorflow/TFRecords/VOC2012/pascal2012val.record --label_map_path=object_detection/data/pascal_label_map.pbtxt --set=val
 
 2. 制作 ssd_mobilenet_v1_VOC2012.config 文件
 
 3. 训练模型
 (注意 windows10 环境下 要使用 'D:\' 而不能使用 'D：/')
+python object_detection\model_main.py --pipeline_config_path=D:\Tensorflow\my_project\ssd_mobilenet_v1_VOC2012.config --model_dir=D:\Tensorflow/my_project\model_dir\VOC2012 --num_train_steps=200 --alsologtostderr
 python object_detection\model_main.py --pipeline_config_path=D:\Tensorflow\my_project\ssd_mobilenet_v1_VOC2012.config --model_dir=D:\Tensorflow/my_project\model_dir\VOC2012 --num_train_steps=200 --num_eval_steps=20 --alsologtostderr

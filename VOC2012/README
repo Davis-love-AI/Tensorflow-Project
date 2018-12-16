@@ -1,7 +1,8 @@
 使用 Tensorflow Object Detection API 训练 VOC2012 数据集
 
-1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
+数据集下载：http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html
 
+1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
 修改文件164行为：
 data_dir, year, 'ImageSets', 'Main',FLAGS.set + '.txt'
 

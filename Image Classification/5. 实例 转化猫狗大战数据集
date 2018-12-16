@@ -34,7 +34,7 @@ def create_record(cmd = "D:/Test_TFRecords/catT_and_dogF", classes={'catT', 'dog
 
 create_record()
     
-5.2 读取TFRecords
+5.2 读取TFRecords (5.2和5.3都可以使用)
 
 import tensorflow as tf
 from PIL import Image
@@ -80,7 +80,7 @@ if __name__ == "__main__":
         coord.request_stop()
         coord.join(threads)
   
-  5.2 Slim 读取 TFRecords 格式数据
+  5.3 Slim 读取 TFRecords 格式数据 (5.2和5.3都可以使用)
   缺失文件网址
   https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/slim/python/slim/data/dataset_data_provider_test.py
   

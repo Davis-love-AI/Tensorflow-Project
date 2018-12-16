@@ -37,7 +37,7 @@ create_record()
 5.2 读取TFRecords
 
 import tensorflow as tf
-import cv2
+from PIL import Image
 
 def batch_read_and_decode(filename, img_height=224, img_width=224, batchSize=1):
     filename_queue = tf.train.string_input_producer([filename], shuffle=False)
@@ -54,14 +54,12 @@ def batch_read_and_decode(filename, img_height=224, img_width=224, batchSize=1):
     img = tf.decode_raw(img, tf.uint8)
     img = tf.reshape(img, [img_height, img_width, 3])
     # img = tf.cast(img, tf.float32) * (1. / 128) - 0.5
-    img = tf.cast(img, tf.float32)
     label = tf.cast(label, tf.int32)
     min_after_dequeue = batchSize * 2
     capacity = min_after_dequeue + batchSize
     exampleBatch, labelBatch = tf.train.shuffle_batch([img, label], batch_size=batchSize, capacity=capacity,
                                                       min_after_dequeue=min_after_dequeue)
     return exampleBatch, labelBatch
-
 
 if __name__ == "__main__":
     init = tf.initialize_all_variables()
@@ -75,8 +73,9 @@ if __name__ == "__main__":
         for i in range(100):
             example, label = sess.run([exampleBatch, labelBatch])
             print(example.shape, label)
-            cv2.imwrite("D:/Test_TFRecords/img/" + str(i) + ".jpg", example[0])
-            print("------------%i-----------" % i)
+
+            img = Image.fromarray(example[0], 'RGB')
+            img.save("D:/Test_TFRecords/img/" + str(i) + ".jpg")
 
         coord.request_stop()
         coord.join(threads)

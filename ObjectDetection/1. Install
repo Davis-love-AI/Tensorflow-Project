@@ -1,1 +1,13 @@
-
+1. 下载 https://github.com/tensorflow/models 解压
+  得到：C:/tensorflow/models/research/object_detection/...
+  
+2. 下载 https://github.com/google/protobuf/releases 解压
+  将bin文件夹中的 protoc.exe 放到 C:\Windows 目录下
+  在models\research\目录下打开命令行窗口，输入：
+  protoc object_detection/protos/*.proto --python_out=.
+  
+3. 配置 windows 环境变量：
+  PYTHONPATH C:/tensorflow/models/research
+  PYTHONPATH C:/tensorflow/models/research/slim
+  
+ 4. 

@@ -1,5 +1,5 @@
 数据集目录结构：
--cat_and_dog_r
+-data
   -dog
     dog_0000.jpg
     dog_0001.jpg

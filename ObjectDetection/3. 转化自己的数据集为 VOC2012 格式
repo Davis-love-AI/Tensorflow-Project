@@ -1,1 +1,31 @@
+使用 IMGLabel 工具对 Windows10 桌面的图片 image.jpg 制作 xml 标签.
+需要修改 xml 的以下内容：
+1). folder 文件夹名称
+2). name 去除图片名中的空格
+3). path 图片路径
+
+def xml_modification():
+    ann_dir = "D:/VOC2012/Annotations/"
+    files = os.listdir(ann_dir)
+    for xml_file in files:
+        if os.path.isfile(os.path.join(ann_dir, xml_file)):
+            xml_path = os.path.join(ann_dir, xml_file)
+            tree = ET.parse(xml_path)
+            root = tree.getroot()
+
+            # changing a field text
+            for elem in root.iter('folder'):
+                elem.text = 'voc2012'
+
+            for elem in root.iter('name'):
+                name = elem.text
+                elem.text = name.replace(" ", "")
+
+            for elem in root.iter('path'):
+                path = elem.text
+                path = path.replace("D:\gloomyfish\pupil", "D:\hand_data\VOC2012\JPEGImages")
+                elem.text = path
+
+            tree.write(xml_path)
+            print("processed xml : %s" % (xml_path))
 

@@ -3,6 +3,8 @@ tensorflow 1.11.0 python 3.6.4
 
 数据集下载：http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html
 
+方法一. 有问题并且失败
+
 1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
 修改文件164行为：
 data_dir, year, 'ImageSets', 'Main', FLAGS.set + '.txt'
@@ -17,3 +19,19 @@ python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/T
 (注意 windows10 环境下 要使用 'D:\' 而不能使用 'D：/')
 python object_detection\model_main.py --pipeline_config_path=D:\Tensorflow\my_project\ssd_mobilenet_v1_VOC2012.config --model_dir=D:\Tensorflow/my_project\model_dir\VOC2012 --num_train_steps=200 --alsologtostderr
 python object_detection\model_main.py --pipeline_config_path=D:\Tensorflow\my_project\ssd_mobilenet_v1_VOC2012.config --model_dir=D:\Tensorflow/my_project\model_dir\VOC2012 --num_train_steps=200 --num_eval_steps=20 --alsologtostderr
+
+方法二. 老方法取得成功！
+
+1. 使用 create_pascal_tf_record.py 将 VOC2012 转化为 TFRecords 格式：
+修改文件164行为：
+data_dir, year, 'ImageSets', 'Main', FLAGS.set + '.txt'
+
+在 tensorflow\models 下运行：
+python object_detection\dataset_tools\create_pascal_tf_record.py --data_dir=D:\VOCdevkit --year=VOC2012 --output_path=D:\tfrecords\pascal2012train.record --label_map_path=object_detection\data\pascal_label_map.pbtxt --set=train
+python object_detection/dataset_tools/create_pascal_tf_record.py --data_dir=D:/Tensorflow/dataset/VOCdevkit --year=VOC2012 --output_path=D:/Tensorflow/TFRecords/VOC2012/pascal2012val.record --label_map_path=object_detection/data/pascal_label_map.pbtxt --set=val
+
+2. 制作 ssd_mobilenet_v1_VOC2012.config 文件
+
+3. 训练模型
+(注意 windows10 环境下 要使用 'D:\' 而不能使用 'D：/')
+python object_detection\legacy\train.py --logtostderr --train_dir=D:\model_dir\VOC2007 --pipeline_config_path=D:\ssd_mobilenet_v1_coco.config

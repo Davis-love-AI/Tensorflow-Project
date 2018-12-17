@@ -23,7 +23,7 @@ def xml_modification():
 
             for elem in root.iter('path'):
                 path = elem.text
-                path = path.replace("D:\gloomyfish\pupil", "D:\hand_data\VOC2012\JPEGImages")
+                path = path.replace("D:\gloomyfish\pupil", "D:\VOC2012\JPEGImages")
                 elem.text = path
 
             tree.write(xml_path)

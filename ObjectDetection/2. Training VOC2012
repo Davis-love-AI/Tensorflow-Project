@@ -32,3 +32,6 @@ python object_detection\dataset_tools\create_pascal_tf_record.py --data_dir=D:\V
 3. 训练模型
 (注意 windows10 环境下 要使用 'D:\' 而不能使用 'D：/')
 python object_detection\legacy\train.py --logtostderr --train_dir=D:\model_dir\VOC2007 --pipeline_config_path=D:\ssd_mobilenet_v1_coco.config
+
+4. 输出冻结推断图
+python object_detection/export_inference_graph.py  --input_type=image_tensor  --pipeline_config_path=D:\Tensorflow\dataset\commodity\ssd_mobilenet_v1_coco.config  --trained_checkpoint_prefix=D:\Tensorflow\my_project\model_dir\commodity\model.ckpt-2913  --output_directory=D:\Tensorflow\dataset\commodity\export

@@ -4,6 +4,11 @@
 2). name 去除图片名中的空格
 3). path 图片路径
 
+import cv2 as cv
+import os
+from xml.dom import minidom
+import xml.etree.ElementTree as ET
+
 def xml_modification():
     ann_dir = "D:/VOC2012/Annotations/"
     files = os.listdir(ann_dir)
@@ -82,3 +87,17 @@ def generate_classes_text():
 
                 handtwo_train.write(filename.replace(".jpg", " ") + str(-1) + "\n")
                 handtwo_val.write(filename.replace(".jpg", " ") + str(-1) + "\n")
+                
+
+3. 非jpeg图片转为jpeg
+import os
+import cv2
+
+# 数据集路径
+Group_dir = "D:/data/VOC2012/JPEGImages/"
+# 组文件夹路径
+Group_folder_dirs = [i for i in os.listdir(Group_dir)]
+
+for name in Group_folder_dirs:
+    rgb = cv2.imread(Group_dir + name)
+    cv2.imwrite("D:/data/VOC2012/2/" + name, rgb)

@@ -1,4 +1,4 @@
-数据增强使用 keras 框架 :
+一. 对 JPG 图片，使用 keras 框架进行数据增强使用 :
 
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 import os
@@ -24,3 +24,5 @@ for filename in dirs:
         counter += 1
         if counter > 100:
             break  # 否则生成器会退出循环
+
+二. 

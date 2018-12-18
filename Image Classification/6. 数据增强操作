@@ -25,4 +25,4 @@ for filename in dirs:
         if counter > 100:
             break  # 否则生成器会退出循环
 
-二. 
+二. 使用tf.函数进行数据增强

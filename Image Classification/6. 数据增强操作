@@ -1,4 +1,4 @@
-数据增强使用 keras
+数据增强使用 keras 框架 :
 
 from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 import os

@@ -4,13 +4,13 @@ from keras.preprocessing.image import ImageDataGenerator, img_to_array, load_img
 import os
 
 datagen = ImageDataGenerator(
-    rotation_range=20,
-    width_shift_range=0.15,
-    height_shift_range=0.15,
-    zoom_range=0.15,
-    shear_range=0.2,
-    horizontal_flip=True,
-	fill_mode='nearest')
+    rotation_range=20, # 整数，数据提升时图片随机转动的角度
+    width_shift_range=0.15, # 浮点数，图片宽度的某个比例，数据提升时图片随机水平偏移的幅度
+    height_shift_range=0.15, # 浮点数，图片高度的某个比例，数据提升时图片随机竖直偏移的幅度
+    zoom_range=0.15, # 浮点数或[lower,upper]，随机缩放的幅度，相当于[lower,upper] = [1 - zoom_range, 1+zoom_range]
+    shear_range=0.2, # 浮点数，剪切强度（逆时针方向的剪切变换角度）
+    horizontal_flip=True, # 布尔值，随机的对图片进行水平翻转
+    fill_mode='nearest') # 当进行变换时超出边界的点将根据本参数给定的方法进行处理
 
 dirs = os.listdir("picture")
 print(len(dirs))
